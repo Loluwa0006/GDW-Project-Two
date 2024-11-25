@@ -11,15 +11,36 @@ public class CameraController : MonoBehaviour
     public CinemachineFramingTransposer composer;
     protected StateMachine playerMachine;
 
-    public GameObject CinemachineObject;
-
     const float AIRBORNE_VERTICAL_DEADZONE = 1.5f;
 
     private void Awake()
     {
        
-            CineCam = GetComponent<CinemachineVirtualCamera>();
-        
+            //CineCam = GetComponent<CinemachineVirtualCamera>();
+
+       /* if (CineCam == null)
+        {
+            CineCam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
+            Debug.Log(" using game object.Find()");
+        }
+        if (CineCam == null)
+        {
+            CineCam = gameObject.GetComponent<CinemachineVirtualCamera>();
+            Debug.Log("using game object.getComponent");
+        }
+        if (CineCam == null)
+        {
+            CineCam = FindAnyObjectByType<CinemachineVirtualCamera>();
+            Debug.Log("using find any object by type");
+
+        }
+
+        if (CineCam == null)
+        {
+            CineCam = CinemachineObject.GetComponent<CinemachineVirtualCamera>();
+            Debug.Log("using cinemachine object.getComponent");
+        } 
+       */
         
         composer = CineCam.GetCinemachineComponent<CinemachineFramingTransposer>();
         playerMachine = player.getStateMachine();

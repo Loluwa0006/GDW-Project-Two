@@ -19,22 +19,17 @@ public class WallJump : Jump
 
     public override bool conditionsMet()
     {
-     
-        RaycastHit2D touchingWall = Physics2D.Raycast(player.rb.position, new Vector2(moveInput.x, 0), wallRaycastLength);
+
+        moveInput = stateMachine.playerInput.actions["Move"].ReadValue<Vector2>();
+        RaycastHit2D touchingWall = Physics2D.Raycast(player.rb.position, new Vector2(moveInput.x, 0), wallRaycastLength, wallMask);
         Debug.DrawLine(player.rb.position, new Vector2(moveInput.x + player.rb.position.x, moveInput.y + player.rb.position.y), Color.red) ; 
 
         Debug.Log("move dir = " + moveInput.x.ToString());
-        if (touchingWall.collider != null)
+        if (touchingWall.collider != null && !IsGrounded())
         {
-            if (touchingWall.collider.transform.CompareTag("Wall"))
-            {
-                Debug.Log("wall collider layer mask = " + (touchingWall.collider.gameObject.layer.ToString()));
-                return stateMachine.playerInput.actions["Jump"].IsPressed();
-            }
-        }
-        else
-        {
-            Debug.Log("NO COLLIDER??? WAH WAH WAH");
+
+            return stateMachine.playerInput.actions["Jump"].IsPressed();
+
         }
 
         return false;

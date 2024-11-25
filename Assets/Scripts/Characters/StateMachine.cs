@@ -36,8 +36,7 @@ public class StateMachine : MonoBehaviour
             }
             //init states by giving them references to the machine for switching states and accessing player info
         }
-        Debug.Log(playerInput);
-        Debug.Log(playerInput.actions);
+      
     }
 
     // Update is called once per frame
@@ -51,11 +50,10 @@ public class StateMachine : MonoBehaviour
     public void FixedUpdateStateMachine()
     {
         currentState.FixedUpdateState();
-        foreach (BaseState state in states)
+        foreach (BaseState state in inactiveProcessing)
         {
             state.inactiveUpdate();
         }
-        Debug.Log(playerInput.actions["Move"].ReadValue<Vector2>());
     }
 
 
@@ -76,7 +74,7 @@ public class StateMachine : MonoBehaviour
     public bool changeState(String new_state)
     {
         if (new_state == currentState.name) { return false; }
-        Debug.Log("Changing state from " + currentState.name + " to state " + new_state);
+      //  Debug.Log("Changing state from " + currentState.name + " to state " + new_state);
         BaseState desiredState = hasState(new_state);
         if (desiredState != null)
         {

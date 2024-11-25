@@ -2313,9 +2313,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 317295318}
-  CineCam: {fileID: 0}
+  CineCam: {fileID: 801743700}
   composer: {fileID: 0}
-  CinemachineObject: {fileID: 0}
+  CinemachineObject: {fileID: 801743699}
 --- !u!1 &897369482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3909,7 +3909,7 @@ Transform:
   m_GameObject: {fileID: 1875673280}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 602.9, y: 79.2, z: 0.6780805}
+  m_LocalPosition: {x: 603.9, y: 69.4, z: 0.6780805}
   m_LocalScale: {x: 58.791485, y: 3.2457309, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4175,7 +4175,7 @@ Transform:
   m_GameObject: {fileID: 1937869904}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 592.5, y: 74.8, z: 0}
+  m_LocalPosition: {x: 590.94, y: 71.05, z: 0}
   m_LocalScale: {x: 0.5916325, y: 25.161041, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4878,6 +4878,18 @@ PrefabInstance:
     - target: {fileID: 4909501330122258338, guid: 5bfa941d91a5e0f4491e5169cd4a6cad, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966298932216255917, guid: 5bfa941d91a5e0f4491e5169cd4a6cad, type: 3}
+      propertyPath: air_accel
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966298932216255917, guid: 5bfa941d91a5e0f4491e5169cd4a6cad, type: 3}
+      propertyPath: max_speed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966298932216255917, guid: 5bfa941d91a5e0f4491e5169cd4a6cad, type: 3}
+      propertyPath: wallRaycastLength
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 6268703511709633094, guid: 5bfa941d91a5e0f4491e5169cd4a6cad, type: 3}
       propertyPath: SpawnPoint

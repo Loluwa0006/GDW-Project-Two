@@ -132,7 +132,8 @@ public class Slide : BaseState
 
     public override bool conditionsMet()
     {
-        bool holdingDown = stateMachine.playerInput.actions["Move"].ReadValue<Vector2>().y < 0 || stateMachine.playerInput.actions["Crouch"].IsPressed();
+        moveInput = stateMachine.playerInput.actions["Move"].ReadValue<Vector2>();
+        bool holdingDown = moveInput.y < 0 || stateMachine.playerInput.actions["Crouch"].IsPressed();
         return holdingDown && IsGrounded() && Math.Abs(player.rb.velocity.x) >= fallState.jumpState.getMaxSpeed() && cooldownTracker <= 0f  && moveInput.x != 0;
         //kinda ugly. needs fixing
     }
