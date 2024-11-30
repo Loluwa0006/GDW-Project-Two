@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -14,6 +15,8 @@ public class Jump : BaseState
 
 
     [SerializeField] protected float CoyoteDuration = 0.1f;
+
+    [SerializeField] protected float bounceMultiplier = 0.75f;
     protected float CoyoteTracker = 0.0f;
 
     public float decel_rate = 0.97f;
@@ -43,6 +46,20 @@ public class Jump : BaseState
     {
         base.onEnter();
         player.rb.velocity = new Vector2 (player.rb.velocity.x, jumpVelocity);
+    }
+
+    public override void onEnter(Dictionary<string, object> msg)
+    {
+        base.onEnter(msg);
+        if (msg.ContainsKey("Bounce") && !playerInput.actions["Jump"].IsPressed())
+        {
+            Debug.Log("bouncin");
+            player.rb.velocity = new Vector2(player.rb.velocity.x, jumpVelocity * bounceMultiplier);
+        }
+        else
+        {
+            player.rb.velocity = new Vector2(player.rb.velocity.x, jumpVelocity);
+        }
     }
 
     public override void FixedUpdateState()

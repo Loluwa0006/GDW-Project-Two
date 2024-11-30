@@ -173,22 +173,14 @@ public class GoombaController : MonoBehaviour
         Debug.DrawRay(transform.position, new Vector2(transform.position.x, transform.position.y - 1), rayColor);
         return hit;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-        if (player == null) return;
-
-        player.damage();
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
-        if (player == null) return;
-        
-          
-        player.rb.velocity = new Vector2(player.rb.velocity.x, player.rb.velocity.y * -0.5f);
-        
-        Destroy(gameObject);
+        if (player == null) { return;  }
+        player.Damage();
+        Debug.Log("tryna hit player");
     }
+
+
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Users;
 
 [System.Serializable] 
 public class StateMachine : MonoBehaviour
@@ -23,9 +24,11 @@ public class StateMachine : MonoBehaviour
 
     [SerializeField] List<BaseState> inactiveProcessing = new List<BaseState>();
 
+
     void Awake()
     {
         playerInput = GetComponent<PlayerInput>();
+       
         currentState = initalState;
         foreach (BaseState state in states)
         {
@@ -61,7 +64,7 @@ public class StateMachine : MonoBehaviour
     }
 
 
-    public bool changeState(String new_state, Dictionary<string, Variables> msg)
+    public bool changeState(string new_state, Dictionary<string, object> msg)
     {
         if (new_state == currentState.name) { return false; }
        BaseState desiredState = hasState(new_state);
@@ -75,22 +78,22 @@ public class StateMachine : MonoBehaviour
         return false;
     }
 
-    public bool changeState(String new_state)
+    public bool changeState(string new_state )
     {
         if (new_state == currentState.name) { return false; }
-      //  Debug.Log("Changing state from " + currentState.name + " to state " + new_state);
         BaseState desiredState = hasState(new_state);
         if (desiredState != null)
         {
             currentState.onExit();
-            desiredState.onEnter();
             currentState = desiredState;
+            desiredState.onEnter();
             return true;
         }
         return false;
     }
 
-    public bool changeStateIfAvailable(String new_state, Dictionary<string, Variables> msg )
+
+    public bool changeStateIfAvailable(String new_state, Dictionary<string, object> msg )
     {
 
         BaseState desiredState = hasState(new_state);

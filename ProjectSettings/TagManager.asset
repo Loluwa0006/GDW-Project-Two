@@ -21,8 +21,8 @@ TagManager:
   - PlayerProjectile
   - EnemyProjectile
   - Pole
-  - 
-  - 
+  - BoundsCamera
+  - PlayerBubble
   - 
   - 
   - 

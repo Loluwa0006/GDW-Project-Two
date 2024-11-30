@@ -45,19 +45,25 @@ public class PoleSlide : BaseState
                 }
                 break;
             case PoleSlideState.SLIDING:
-                player.rb.velocity = new Vector2(0, -SlideSpeed);
+                player.rb.velocity = new Vector2(0, -SlideSpeed * Time.deltaTime);
+                if (IsGrounded())
+                {
+                    CurrentState = PoleSlideState.DONE;
+                }
                 break;
             case PoleSlideState.DONE:
                 Debug.Log("You won!");
                 player.rb.velocity = Vector2.zero;
+                Time.timeScale = 0.0f;
                 break;
         }
     }
 
     public override bool conditionsMet()
     {
-        RaycastHit2D hit = Physics2D.Raycast(player.rb.position, new Vector2(Mathf.Sign(player.rb.velocity.x), 0), 0.8f, PoleLayer);
-        return hit.collider != null;
+        return false;
+        //Flagpole object will force player into this state, and there shouldn't be any
+        //situation where the player enters it other wise.
     }
 
 

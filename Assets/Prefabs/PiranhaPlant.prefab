@@ -324,7 +324,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -355,7 +355,6 @@ MonoBehaviour:
   AttackRange: 10
   AttackSpeed: 25
   RetractSpeed: 25
-  Pipe: {fileID: 1759372567855127342}
   currentState: 0
 --- !u!1 &8286384988332766567
 GameObject:
@@ -449,11 +448,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ee02f6a307ad034b81f86246b3c3482, type: 3}
---- !u!1 &1759372567855127342 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5741950527224472601, guid: 4ee02f6a307ad034b81f86246b3c3482, type: 3}
-  m_PrefabInstance: {fileID: 6324476174366326583}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7585415861982274380 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4504094527670688891, guid: 4ee02f6a307ad034b81f86246b3c3482, type: 3}

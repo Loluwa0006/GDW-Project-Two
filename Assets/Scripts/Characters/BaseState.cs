@@ -14,7 +14,7 @@ public class BaseState : MonoBehaviour
 
 
     protected Vector2 moveInput = Vector2.zero;
-
+    int facing = 1;
 
     // Start is called before the first frame update
 
@@ -24,7 +24,7 @@ public class BaseState : MonoBehaviour
     {
 
     }
-    virtual public void onEnter(Dictionary<string, Variables> msg) 
+    virtual public void onEnter(Dictionary<string, object> msg) 
     {
 
     }
@@ -36,10 +36,12 @@ public class BaseState : MonoBehaviour
         if (moveInput.x > 0)
         {
             player.transform.localScale = new Vector3(1,1, 1);
+            facing = 1;
         }
         else if (moveInput.x < 0)
         {
             player.transform.localScale = new Vector3(-1, 1, 1);
+            facing = -1;
         }
 
     }
@@ -79,14 +81,26 @@ public class BaseState : MonoBehaviour
 
     public bool IsGrounded()
     {
-       // Debug.Log("Checking if grounded");
-        RaycastHit2D Ray = Physics2D.Raycast(player.transform.position, Vector2.down, 1.25f, LayerMask.GetMask("Ground"));
-        if (Ray.collider != null)
+        // Debug.Log("Checking if grounded");
+        player.hurtbox.enabled = false;
+        //Disable collision on self during duration of raycast to make sure ray doesn't collide with ourself
+        RaycastHit2D Ray = Physics2D.Raycast(player.transform.position, Vector2.down, 1.25f, LayerMask.GetMask("Ground", "Player"));
+        if (Ray.collider != null )
         {
-           // Debug.Log("hit somethin");
+          //  Debug.Log("My own name is " + player.name + " and i'm standing on something called " + Ray.collider.name);
+            // Debug.Log("hit somethin");
+            player.hurtbox.enabled = true;
             return true;
         }
-       //  Debug.Log("hit nothin");
+
+
+        //  Debug.Log("hit nothin");
+        player.hurtbox.enabled = true;
         return false;
+    }
+
+    public bool facingRight()
+    {
+        return (facing > 0);
     }
 }

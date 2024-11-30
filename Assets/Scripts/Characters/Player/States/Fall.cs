@@ -11,8 +11,11 @@ public class Fall : BaseState
 
     [SerializeField] float jumpTimeToDecent = 0.4f;
     [SerializeField] float maxFallSpeed = 150f;
-
     [SerializeField] protected float CoyoteDuration = 0.1f;
+
+    [SerializeField] LayerMask enemyMask;
+
+   [SerializeField] protected float stompRayLength = 0.75f;
     protected float CoyoteTracker = 0.0f;
 
     public Jump jumpState;
@@ -32,6 +35,7 @@ public class Fall : BaseState
     public override void FixedUpdateState()
     {
 
+        stompEnemies();
        if (stateMachine.changeStateIfAvailable("WallJump")) { return;  }
         Vector2 new_velocity = player.rb.velocity;
         float horiz = playerInput.actions["Move"].ReadValue<Vector2>().x;
@@ -93,6 +97,18 @@ public class Fall : BaseState
     public float getMaxFallSpeed()
     {
         return maxFallSpeed;
+    }
+
+    private void stompEnemies()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(player.rb.position, new Vector2(0, -1), stompRayLength, enemyMask);
+        if (hit)
+        {
+            Destroy(hit.collider.gameObject);
+            Dictionary<string, object> jumpArgs = new Dictionary<string, object>();
+            jumpArgs["Bounce"] = true;
+            stateMachine.changeState("Jump", jumpArgs);
+        }
     }
 
 

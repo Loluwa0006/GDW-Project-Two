@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
+using UnityEngine.UIElements;
 
 
 [System.Serializable]
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
 {
 
     public Rigidbody2D rb;
+    public Collider2D hurtbox;
 
 
     enum PowerType { 
@@ -33,7 +35,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform SpawnPoint;
     [SerializeField] Transform StartPoint;
 
-    [SerializeField] int RemainingLives = 3;
+
+    [SerializeField] LayerMask bubbleMask;
+    [SerializeField] LayerMask cameraBoundsMask;
+    [SerializeField] LevelManager levelManager;
+
 
     public Transform groundChecker;
 
@@ -46,21 +52,35 @@ public class PlayerController : MonoBehaviour
 
     int healthPoints = 2;
 
-    LevelManager levelManager;
+
 
     bool debugEnabled = false;
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>(); ;
-        InputSystem.settings.defaultDeadzoneMax = 0.924f;
+        hurtbox = GetComponent<Collider2D>();
         //fixes bug with InputSystem not reading inputs for some states.
-        transform.position = StartPoint.transform.position;
-        SpawnPoint.position = StartPoint.transform.position;
+      //  transform.position = StartPoint.transform.position;
+      //  SpawnPoint.position = StartPoint.transform.position;
     }
 
     // Update is called once per frame
-    void Update()
+
+    void BubbleLogic()
     {
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, rb.velocity.normalized, 1.25f, cameraBoundsMask);
+            if (hit)
+        {
+            rb.velocity = rb.velocity.magnitude * hit.normal;
+        }
+
+    }
+    void Update()
+    { if (currentPower == PowerType.BUBBLE)
+        {
+            BubbleLogic();
+            return;
+        }
         if (Invlv)
         {
             invlv_tracker += Time.deltaTime;
@@ -77,7 +97,6 @@ public class PlayerController : MonoBehaviour
             stateTracker.text = "State: " + stateMachine.getCurrentState().name;
             velocityTracker.text = "Velocity: " + rb.velocity.ToString();
         }
-        livesTracker.text = "Lives: " + RemainingLives.ToString();
     }
 
     private void FixedUpdate()
@@ -90,12 +109,12 @@ public class PlayerController : MonoBehaviour
         coins += amount;
         if (coins % 100 == 0)
         {
-            addLives();
+            levelManager.changeLives(1);
         }
         levelManager.AddCoins(amount);
     }
 
-    public void damage()
+    public void Damage()
     {
         if (Invlv)
         {
@@ -104,6 +123,7 @@ public class PlayerController : MonoBehaviour
             Invlv = true;
         healthPoints -= 1;
         currentPower = PowerType.SMALL;
+        Debug.Log("owie im getting hit and now only have " +  healthPoints.ToString());
         if (healthPoints <= 0)
         {
             onPlayerDefeated();
@@ -113,28 +133,27 @@ public class PlayerController : MonoBehaviour
         }
     public void onPlayerDefeated()
     {
-        Debug.Log("You died!");
-        if (RemainingLives > 0)
-        {
-            if (levelManager.NumberOfPlayers > 1)
+        Debug.Log("Player " + name + " died ");
+        levelManager.changeLives(-1);
+
+       /* if (levelManager.NumberOfPlayers > 1)
             {
                 stateMachine.gameObject.SetActive(false);
                 currentPower = PowerType.BUBBLE;
+            
+            gameObject.layer = bubbleMask;
+            rb.velocity = new Vector2(0, 1);
+            Debug.Log("u are a bubble now.");
 
             }
-            transform.position = SpawnPoint.position;
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-        if (currentPower.Equals(PowerType.SMALL))
-        {
+          */  
+            
+                transform.position = SpawnPoint.position;
+            Debug.Log("go back to spawn ");
 
-        }
-        RemainingLives -= 1;
+        
+
         currentPower = PowerType.NORMAL;
-        livesTracker.text = "Lives: " + RemainingLives.ToString();
         healthPoints = 2;
 
     }
@@ -142,21 +161,37 @@ public class PlayerController : MonoBehaviour
     public void setCheckpoint(Vector2 pos)
     {
         SpawnPoint.transform.position = pos;
-        addLives();
+        levelManager.changeLives(1);
     }
 
-    public void addLives(int amount = 1)
-    {
-        RemainingLives += amount;
-        livesTracker.text = "Lives: " + RemainingLives.ToString();
-    }
+  
 
 
     public StateMachine getStateMachine()
     {
         return stateMachine;
     }
+    
+public void initPlayer(TMP_Text l_tracker, Transform spawnpoint, LevelManager manager)
+    {
+        livesTracker = l_tracker;
+        SpawnPoint = spawnpoint;
+        StartPoint = spawnpoint;
+        levelManager = manager;
+       
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerController bubbleChar = collision.GetComponent<PlayerController>();
+        if (bubbleChar == null) { return; }
+        else if (bubbleChar.currentPower != PowerType.BUBBLE)
+        {
+            return;
+        }
+        bubbleChar.currentPower = PowerType.SMALL;
+    }
 }
 
 

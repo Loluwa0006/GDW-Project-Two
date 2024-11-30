@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 4349199277266358368}
   - {fileID: 904678006002954643}
   - {fileID: 5966298932216255917}
+  - {fileID: 2565802855620556571}
   initalState: {fileID: 4658189976247425037}
   playerInput: {fileID: 2792345335677672260}
   player: {fileID: 6268703511709633094}
@@ -142,7 +143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasInactiveProcess: 0
-  SlideSpeed: 0.4
+  PoleLayer:
+    serializedVersion: 2
+    m_Bits: 16384
+  SlideSpeed: 250
   ScoreIncrease: 0.1
   SlideDelay: 1.5
 --- !u!1 &1328330861743518148
@@ -194,6 +198,7 @@ MonoBehaviour:
   jumpTimeToPeak: 0.5
   bufferWindow: 0.4
   CoyoteDuration: 0.2
+  bounceMultiplier: 0.75
   decel_rate: 0.97
   air_accel: 2
   max_speed: 15
@@ -341,10 +346,11 @@ MonoBehaviour:
   jumpTimeToPeak: 0.3
   bufferWindow: 0.4
   CoyoteDuration: 0.1
+  bounceMultiplier: 0.75
   decel_rate: 0.97
   air_accel: 0.3
   max_speed: 5
-  wallRaycastLength: 8
+  wallRaycastLength: 1.25
   JumpBoost: 6
   wallMask:
     serializedVersion: 2
@@ -580,11 +586,15 @@ MonoBehaviour:
   stateMachine: {fileID: 4794825729852359987}
   stateTracker: {fileID: 0}
   velocityTracker: {fileID: 0}
-  coinTracker: {fileID: 0}
   livesTracker: {fileID: 0}
   SpawnPoint: {fileID: 0}
   StartPoint: {fileID: 0}
-  RemainingLives: 3
+  bubbleMask:
+    serializedVersion: 2
+    m_Bits: 65536
+  cameraBoundsMask:
+    serializedVersion: 2
+    m_Bits: 32768
   groundChecker: {fileID: 475150766852998430}
 --- !u!1 &5573389523412269605
 GameObject:
@@ -709,9 +719,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasInactiveProcess: 1
-  jumpTimeToDecent: 0.45
-  maxFallSpeed: 20
+  jumpTimeToDecent: 0.35
+  maxFallSpeed: 40
   CoyoteDuration: 0.2
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  stompRayLength: 1.5
   jumpState: {fileID: 6451347666339051360}
 --- !u!1 &8878528902712686071
 GameObject:

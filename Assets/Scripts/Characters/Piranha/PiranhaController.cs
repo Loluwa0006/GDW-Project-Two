@@ -101,4 +101,13 @@ public class PiranhaController : MonoBehaviour
         Debug.Log("Current speed is " + rb.velocity.ToString());
 
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player == null) { return; }
+        player.Damage();
+        Debug.Log("tryna hit player");
+    }
+
 }
