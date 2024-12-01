@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Downloads\\GDW-Project-Two\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|c:\\users\\user\\downloads\\gdw-project-two\\assets\\scripts\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|c:\\users\\user\\downloads\\gdw-project-two\\assets\\scripts\\characters\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\characters\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|C:\\Users\\User\\Downloads\\GDW-Project-Two\\assets\\scripts\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\levelmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,11 +19,7 @@
       "RelativeMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\characters\\basestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|c:\\users\\user\\downloads\\gdw-project-two\\assets\\scripts\\characters\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\characters\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|c:\\users\\user\\downloads\\gdw-project-two\\assets\\scripts\\characters\\piranha\\piranhacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|C:\\Users\\User\\Downloads\\GDW-Project-Two\\assets\\scripts\\characters\\piranha\\piranhacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\characters\\piranha\\piranhacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -31,11 +31,11 @@
       "RelativeMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\characters\\statemachine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|c:\\users\\user\\downloads\\gdw-project-two\\assets\\scripts\\characters\\player\\states\\poleslide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|C:\\Users\\User\\Downloads\\GDW-Project-Two\\assets\\scripts\\characters\\player\\states\\poleslide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\characters\\player\\states\\poleslide.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|c:\\users\\user\\downloads\\gdw-project-two\\assets\\scripts\\flagpole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|C:\\Users\\User\\Downloads\\GDW-Project-Two\\assets\\scripts\\flagpole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6CF549A-6D7C-DFE0-D959-D8A958DB74E5}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\flagpole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -66,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -78,38 +78,36 @@
               "RelativeToolTip": "Assets\\Scripts\\Characters\\Piranha\\PiranhaController.cs",
               "ViewState": "AgIAAF8AAAAAAAAAAAAAAG8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T00:32:48.764Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-30T00:32:48.764Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "LevelManager.cs",
               "DocumentMoniker": "C:\\Users\\User\\Downloads\\GDW-Project-Two\\Assets\\Scripts\\LevelManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LevelManager.cs",
               "ToolTip": "C:\\Users\\User\\Downloads\\GDW-Project-Two\\Assets\\Scripts\\LevelManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\LevelManager.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAYwGgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAH4AAAAAAAAAAAA1wGgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T21:14:56.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T21:14:56.294Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Downloads\\GDW-Project-Two\\Assets\\Scripts\\Characters\\Player\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Characters\\Player\\PlayerController.cs",
               "ToolTip": "C:\\Users\\User\\Downloads\\GDW-Project-Two\\Assets\\Scripts\\Characters\\Player\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Characters\\Player\\PlayerController.cs",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAkwJgAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-29T20:11:25.745Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "BaseState.cs",
               "DocumentMoniker": "C:\\Users\\User\\Downloads\\GDW-Project-Two\\Assets\\Scripts\\Characters\\BaseState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Characters\\BaseState.cs",
@@ -117,12 +115,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Characters\\BaseState.cs",
               "ViewState": "AgIAAFEAAAAAAAAAAAA2wFkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T20:27:46.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T20:27:46.926Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CameraController.cs",
               "DocumentMoniker": "C:\\Users\\User\\Downloads\\GDW-Project-Two\\Assets\\Scripts\\CameraController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\CameraController.cs",
@@ -130,8 +127,7 @@
               "RelativeToolTip": "Assets\\Scripts\\CameraController.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAAwEEAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T20:31:36.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T20:31:36.58Z"
             },
             {
               "$type": "Document",
@@ -143,8 +139,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Characters\\Goomba\\GoombaController.cs",
               "ViewState": "AgIAAKEAAAAAAAAAAAAswLAAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T20:15:45.88Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T20:15:45.88Z"
             },
             {
               "$type": "Document",
@@ -156,8 +151,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Characters\\StateMachine.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAAAwBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T20:24:20.39Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T20:24:20.39Z"
             },
             {
               "$type": "Document",
@@ -169,8 +163,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Characters\\Player\\States\\PoleSlide.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAYwDgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T20:48:18.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T20:48:18.336Z"
             },
             {
               "$type": "Document",
@@ -182,8 +175,7 @@
               "RelativeToolTip": "Assets\\Scripts\\FlagPole.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-29T20:44:04.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-29T20:44:04.832Z"
             },
             {
               "$type": "Document",

@@ -32,55 +32,55 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       /* 
-        * NumberOfPlayers = (Mathf.Clamp(NumberOfPlayers, 1, 4));
-        //Max players is 4
-        /*
+        /* 
+         * NumberOfPlayers = (Mathf.Clamp(NumberOfPlayers, 1, 4));
+         //Max players is 4
+         /*
 
-        foreach (Gamepad pad in Gamepad.all)
-        {
-            Debug.Log(pad.name);
-        }
-        for (int i = 0; i < NumberOfPlayers; i++)
-        {
-            PlayerController newPlayer = Instantiate(PlayerPrefab);
-            Vector3 spawnPos = StartPos.position;
-            spawnPos.x += (PlayerSpawnerSpacerAmount * i);
-            newPlayer.transform.position = spawnPos;
-            newPlayer.initPlayer(livesTracker, StartPos, this);
-            newPlayer.name = "Player " + (i + 1).ToString();
-            players.Add(newPlayer);
+         foreach (Gamepad pad in Gamepad.all)
+         {
+             Debug.Log(pad.name);
+         }
+         for (int i = 0; i < NumberOfPlayers; i++)
+         {
+             PlayerController newPlayer = Instantiate(PlayerPrefab);
+             Vector3 spawnPos = StartPos.position;
+             spawnPos.x += (PlayerSpawnerSpacerAmount * i);
+             newPlayer.transform.position = spawnPos;
+             newPlayer.initPlayer(livesTracker, StartPos, this);
+             newPlayer.name = "Player " + (i + 1).ToString();
+             players.Add(newPlayer);
 
-        }
+         }
 
 
 
-        int gamepadIndex = 0;
-        /*
-            foreach (PlayerController player in players)
-            {
-                if (player == players[0])
-                {
-                    if (!playerOneUsesKeyboard)
-                    {
-                        player.getStateMachine().playerInput.SwitchCurrentControlScheme(Gamepad.all[0]);
-                        gamepadIndex++;
-                    continue;
-                    }
-                }
-                if (gamepadIndex <= Gamepad.all.Count - 1)
-            {
-                player.getStateMachine().playerInput.SwitchCurrentControlScheme(Gamepad.all[gamepadIndex]);
-                gamepadIndex++;
+         int gamepadIndex = 0;
+         /*
+             foreach (PlayerController player in players)
+             {
+                 if (player == players[0])
+                 {
+                     if (!playerOneUsesKeyboard)
+                     {
+                         player.getStateMachine().playerInput.SwitchCurrentControlScheme(Gamepad.all[0]);
+                         gamepadIndex++;
+                     continue;
+                     }
+                 }
+                 if (gamepadIndex <= Gamepad.all.Count - 1)
+             {
+                 player.getStateMachine().playerInput.SwitchCurrentControlScheme(Gamepad.all[gamepadIndex]);
+                 gamepadIndex++;
 
-            }
-                else
-            {
-                Debug.Log("No controller connected for player " + player.name);
-            }
+             }
+                 else
+             {
+                 Debug.Log("No controller connected for player " + player.name);
+             }
 
-        }
-        */
+         }
+         */
 
         /*
         foreach (Gamepad pad in Gamepad.all)
@@ -104,6 +104,9 @@ public class LevelManager : MonoBehaviour
         //Follow player one always
        */
 
+        PlayerController player = FindFirstObjectByType<PlayerController>();
+        cameraController.playerMachine = player.getStateMachine();
+        cinemachineCamera.m_Follow = player.transform;
 
     }
 
@@ -148,5 +151,9 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+   void OnPlayerJoined()
+    {
+        Debug.Log("A new player is here!");
+    }
 
 }
