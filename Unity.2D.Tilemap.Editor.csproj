@@ -140,9 +140,9 @@
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\Editor\GridPaintPaletteWindowPreferences.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\Editor\UI\TilemapEditorToolButton.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\Editor\EditorTools\PaintTool.cs" />
-    <Compile Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\Editor\UI\TilePaletteBrushesDropdownToggle.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\Editor\UI\TilePaletteOverlayToolbarElementAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\Editor\UI\TilePaletteActivePalettePopup.cs" />
+    <Compile Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\Editor\UI\TilePaletteBrushesDropdownToggle.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\Editor\EditorTools\EraseTool.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\Editor\GridPalettesDropdown.cs" />
     <Compile Include="Library\PackageCache\com.unity.2d.tilemap@1.0.0\Editor\GridPaletteUtility.cs" />

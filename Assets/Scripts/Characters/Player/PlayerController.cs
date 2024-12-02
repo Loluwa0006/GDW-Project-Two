@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UIElements;
+using UnityEngine.Events;
 
 
 [System.Serializable]
@@ -14,8 +15,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Collider2D hurtbox;
 
-
-    enum PowerType { 
+   public enum PowerType { 
         SMALL,
         NORMAL,
         FIREFLOWER,
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         BUBBLE,
     }
 
-    PowerType currentPower = PowerType.SMALL;
+    [SerializeField] PowerType currentPower = PowerType.NORMAL;
 
     [SerializeField] StateMachine stateMachine;
 
@@ -33,13 +33,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] TMP_Text livesTracker;
 
     [SerializeField] Transform SpawnPoint;
-    [SerializeField] Transform StartPoint;
-
 
     [SerializeField] LayerMask bubbleMask;
     [SerializeField] LayerMask cameraBoundsMask;
-    [SerializeField] LevelManager levelManager;
 
+    [SerializeField] float InteractDistance = 1.25f;
+    public LevelManager levelManager;
 
     public Transform groundChecker;
 
@@ -50,11 +49,10 @@ public class PlayerController : MonoBehaviour
     float invlv_tracker = 0.0f;
     // Start is called before the first frame update
 
-    int healthPoints = 2;
-
-
-
     bool debugEnabled = false;
+
+    public UnityEvent<PlayerController> releasedInteract;
+    public UnityEvent playerDied;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>(); ;
@@ -76,7 +74,9 @@ public class PlayerController : MonoBehaviour
 
     }
     void Update()
-    { if (currentPower == PowerType.BUBBLE)
+    {
+        canInteract();
+        if (currentPower == PowerType.BUBBLE)
         {
             BubbleLogic();
             return;
@@ -92,11 +92,15 @@ public class PlayerController : MonoBehaviour
         }
 
         stateMachine.UpdateStateMachine();
+        if (stateMachine.playerInput.actions["Interact"].WasReleasedThisFrame()) {
+            releasedInteract.Invoke(this);
+        }
         if (debugEnabled)
         {
             stateTracker.text = "State: " + stateMachine.getCurrentState().name;
             velocityTracker.text = "Velocity: " + rb.velocity.ToString();
         }
+
     }
 
     private void FixedUpdate()
@@ -121,18 +125,33 @@ public class PlayerController : MonoBehaviour
             return;
         }
             Invlv = true;
-        healthPoints -= 1;
-        currentPower = PowerType.SMALL;
-        Debug.Log("owie im getting hit and now only have " +  healthPoints.ToString());
-        if (healthPoints <= 0)
+        if (currentPower == PowerType.SMALL)
         {
             onPlayerDefeated();
         }
+        currentPower = PowerType.SMALL;
 
 
-        }
+
+    }
+
+    public void becomeBubble()
+    {
+          
+              stateMachine.gameObject.SetActive(false);
+              currentPower = PowerType.BUBBLE;
+
+          gameObject.layer = bubbleMask;
+          rb.velocity = new Vector2(0, 1);
+          Debug.Log("u are a bubble now.");
+
+          
+        
+    }
     public void onPlayerDefeated()
     {
+        playerDied.Invoke();
+        hurtbox.enabled = false;
         Debug.Log("Player " + name + " died ");
         levelManager.changeLives(-1);
 
@@ -146,16 +165,16 @@ public class PlayerController : MonoBehaviour
             Debug.Log("u are a bubble now.");
 
             }
-          */  
+          */
             
                 transform.position = SpawnPoint.position;
             Debug.Log("go back to spawn ");
 
         
 
-        currentPower = PowerType.NORMAL;
-        healthPoints = 2;
-
+        currentPower = PowerType.SMALL;
+        hurtbox.enabled = true;
+        //turn hurtbox off and on again to ensure player doesn't get hurt while respawning
     }
 
     public void setCheckpoint(Vector2 pos)
@@ -171,12 +190,16 @@ public class PlayerController : MonoBehaviour
     {
         return stateMachine;
     }
+
+    public PowerType GetCurrentPower()
+    {
+        return currentPower;
+    }
     
 public void initPlayer(TMP_Text l_tracker, Transform spawnpoint, LevelManager manager)
     {
         livesTracker = l_tracker;
         SpawnPoint = spawnpoint;
-        StartPoint = spawnpoint;
         levelManager = manager;
        
 
@@ -191,6 +214,25 @@ public void initPlayer(TMP_Text l_tracker, Transform spawnpoint, LevelManager ma
             return;
         }
         bubbleChar.currentPower = PowerType.SMALL;
+    }
+
+    private void canInteract()
+    {
+        if (!stateMachine.playerInput.actions["Interact"].IsPressed())
+        {
+            return;
+        }
+        int facing = (stateMachine.getCurrentState().getFacing());
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, new Vector2(facing, 0), InteractDistance, LayerMask.GetMask("Item"));
+        if (hit)
+        {
+            Debug.Log("Interact is pressed");
+            BaseItem item = hit.transform.GetComponent<BaseItem>();
+            if (item)
+            {
+                item.onPlayerInteract(this);
+            }
+        }
     }
 }
 

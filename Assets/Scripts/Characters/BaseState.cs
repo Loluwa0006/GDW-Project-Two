@@ -16,6 +16,8 @@ public class BaseState : MonoBehaviour
     protected Vector2 moveInput = Vector2.zero;
     int facing = 1;
 
+
+
     // Start is called before the first frame update
 
   
@@ -84,23 +86,20 @@ public class BaseState : MonoBehaviour
         // Debug.Log("Checking if grounded");
         player.hurtbox.enabled = false;
         //Disable collision on self during duration of raycast to make sure ray doesn't collide with ourself
-        RaycastHit2D Ray = Physics2D.Raycast(player.transform.position, Vector2.down, 1.25f, LayerMask.GetMask("Ground", "Player"));
+        RaycastHit2D Ray = Physics2D.Raycast(player.transform.position, Vector2.down, 1.25f, LayerMask.GetMask("Ground"));
         if (Ray.collider != null )
         {
-          //  Debug.Log("My own name is " + player.name + " and i'm standing on something called " + Ray.collider.name);
-            // Debug.Log("hit somethin");
             player.hurtbox.enabled = true;
             return true;
         }
 
 
-        //  Debug.Log("hit nothin");
         player.hurtbox.enabled = true;
         return false;
     }
 
-    public bool facingRight()
+    public int getFacing()
     {
-        return (facing > 0);
+        return (facing < 0) ? -1 : 1;
     }
 }

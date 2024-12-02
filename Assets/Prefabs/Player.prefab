@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 8491171e26a049c48aa79de10809a18d, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -246,10 +246,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5feda11826835fd4e8a671a457baaf98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasInactiveProcess: 0
+  hasInactiveProcess: 1
   dash_duration: 0.1
   dash_speed: 50
   MaxExitSpeed: 15
+  cooldownLength: 0.25
 --- !u!1 &4136363213166318598
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,19 +584,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
+  hurtbox: {fileID: 0}
+  currentPower: 1
   stateMachine: {fileID: 4794825729852359987}
   stateTracker: {fileID: 0}
   velocityTracker: {fileID: 0}
   livesTracker: {fileID: 0}
   SpawnPoint: {fileID: 0}
-  StartPoint: {fileID: 0}
   bubbleMask:
     serializedVersion: 2
     m_Bits: 65536
   cameraBoundsMask:
     serializedVersion: 2
-    m_Bits: 32768
+    m_Bits: 0
+  InteractDistance: 1.25
+  levelManager: {fileID: 0}
   groundChecker: {fileID: 475150766852998430}
+  releasedInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  playerDied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5573389523412269605
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,10 +732,11 @@ MonoBehaviour:
   jumpTimeToDecent: 0.35
   maxFallSpeed: 40
   CoyoteDuration: 0.2
-  enemyMask:
+  stompMask:
     serializedVersion: 2
-    m_Bits: 2048
-  stompRayLength: 1.5
+    m_Bits: 133120
+  stompRayLength: 1.25
+  stompScore: 100
   jumpState: {fileID: 6451347666339051360}
 --- !u!1 &8878528902712686071
 GameObject:

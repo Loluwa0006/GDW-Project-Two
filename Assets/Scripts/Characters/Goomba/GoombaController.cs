@@ -1,9 +1,9 @@
-using Cinemachine;
+//using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoombaController : MonoBehaviour
+public class GoombaController : BaseEnemy
 {
 
     [SerializeField] float JumpHeight = 5.0f;
@@ -20,10 +20,7 @@ public class GoombaController : MonoBehaviour
     [SerializeField] float chaseDuration = 8.0f;
 
     [SerializeField] LayerMask playerMask;
-    [SerializeField] LayerMask groundMask;
 
-    [SerializeField] Color RaycastHitColor;
-    [SerializeField] Color RaycastMissColor;
 
     float jumpVelocity = 0.0f;
     float jumpGravity = 0.0f;
@@ -33,10 +30,8 @@ public class GoombaController : MonoBehaviour
     bool wasGroundedLastFrame;
 
 
-    Vector2 CurrentSpeed = Vector2.zero;
     Vector2 target = Vector2.zero;
-    private Rigidbody2D rb;
-    private BoxCollider2D boxCollider;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,9 +52,10 @@ public class GoombaController : MonoBehaviour
         wasGroundedLastFrame = isGrounded();
         CurrentSpeed = rb.velocity;
         bool seesPlayer = SeesPlayer();
-
+        CurrentSpeed.y = -0.1f; //this is to make sure the goomba is grounded
        if (!isGrounded())
         {
+
             if (target != Vector2.zero)
             {
                 GoombaJump();
@@ -71,7 +67,6 @@ public class GoombaController : MonoBehaviour
                 rb.velocity = CurrentSpeed; 
                 return; //exit before applying gravity 
 
-             
             }
             CurrentSpeed.y += getGravity();
         }
@@ -121,20 +116,21 @@ public class GoombaController : MonoBehaviour
     private bool SeesPlayer()
     {
         Vector2 RaycastPos = transform.position;
-        RaycastHit2D hit = Physics2D.Raycast(RaycastPos, new Vector2(Mathf.Sign(CurrentSpeed.x), 0), VisionLength, playerMask);
+        RaycastHit2D hit = Physics2D.Raycast(RaycastPos, new Vector2(Mathf.Sign(CurrentSpeed.x), 0), VisionLength, LayerMask.GetMask("Player", "Wall" ,"Ground" ) );
         Color rayColor;
         if (hit)
         {
             rayColor = RaycastHitColor;
             target = hit.point;
             chaseTracker = 0.0f;
+            return (hit.transform.GetComponent<PlayerController>() != null);
         }
         else
         {
             rayColor = RaycastMissColor;
         }
         Debug.DrawLine(RaycastPos, RaycastPos + (CurrentSpeed.normalized * VisionLength), rayColor);
-        return hit;
+        return false;
     }
 
     float getGravity()
@@ -145,35 +141,7 @@ public class GoombaController : MonoBehaviour
         }
         return jumpGravity;
     }
-    private bool isGrounded(bool checkBack = false)
-    {
-
-        Vector2 raycastPos = rb.position;
-        if (!checkBack)
-        {
-            raycastPos.x += ((boxCollider.bounds.size.x / 2.0f) * Mathf.Sign(CurrentSpeed.x));
-        }
-        else
-        {
-            raycastPos.x -= ((boxCollider.bounds.size.x / 2.0f) * Mathf.Sign(CurrentSpeed.x));
-
-        }
-        RaycastHit2D hit = Physics2D.Raycast(raycastPos, new Vector2(0, -1), 1.0f, groundMask);
-        Color rayColor;
-        if (hit)
-        {
-            rayColor = RaycastHitColor;
-            Debug.Log("You're grounded");
-        }
-        else
-        {
-            rayColor = RaycastMissColor;
-            Debug.Log("You're not grounded");
-        }
-        Debug.DrawRay(transform.position, new Vector2(transform.position.x, transform.position.y - 1), rayColor);
-        return hit;
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
-using Cinemachine;
+//using Cinemachine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 
@@ -12,26 +13,40 @@ public class LevelManager : MonoBehaviour
 
     [SerializeField] TMP_Text coinTracker;
     [SerializeField] TMP_Text livesTracker;
+    [SerializeField] TMP_Text scoreTracker;
     [SerializeField] PlayerController PlayerPrefab;
-    [SerializeField] Transform StartPos ;
-    [SerializeField] CinemachineVirtualCamera cinemachineCamera;
+   // [SerializeField] CinemachineVirtualCamera cinemachineCamera;
     [SerializeField] CameraController cameraController;
     [SerializeField] Camera levelCamera;
     [SerializeField] float PlayerSpawnerSpacerAmount = 1.5f;
 
-    [SerializeField] bool playerOneUsesKeyboard = true;
+    public Transform StartPos;
+
+    public PlayerController playerOne;
 
     public int NumberOfPlayers = 1;
+    
     public int remainingLives = 15;
 
+    public int goodTimeInSeconds = 180;
 
     List <PlayerController> players = new List<PlayerController> ();
 
+
+   public UnityEvent<float> scoreChanged;
+
+    float score = 0;
     int TotalCoins = 0;
     Vector3 screenBounds;
+
+    
     // Start is called before the first frame update
     void Start()
     {
+        scoreChanged = new UnityEvent<float>();
+        scoreChanged.AddListener(updateScore);
+        livesTracker.text = "Lives: " + remainingLives.ToString();
+        playerOne.transform.position = StartPos.position;
         /* 
          * NumberOfPlayers = (Mathf.Clamp(NumberOfPlayers, 1, 4));
          //Max players is 4
@@ -104,9 +119,7 @@ public class LevelManager : MonoBehaviour
         //Follow player one always
        */
 
-        PlayerController player = FindFirstObjectByType<PlayerController>();
-        cameraController.playerMachine = player.getStateMachine();
-        cinemachineCamera.m_Follow = player.transform;
+       // cameraController.playerMachine = player.getStateMachine();
 
     }
 
@@ -151,9 +164,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-   void OnPlayerJoined()
+    void updateScore(float amount)
     {
-        Debug.Log("A new player is here!");
+        score += amount;
+        scoreTracker.text = Math.Round(score).ToString();
+
     }
 
 }

@@ -13,9 +13,10 @@ public class Fall : BaseState
     [SerializeField] float maxFallSpeed = 150f;
     [SerializeField] protected float CoyoteDuration = 0.1f;
 
-    [SerializeField] LayerMask enemyMask;
+    [SerializeField] LayerMask stompMask;
 
    [SerializeField] protected float stompRayLength = 0.75f;
+    [SerializeField] protected int stompScore = 100;
     protected float CoyoteTracker = 0.0f;
 
     public Jump jumpState;
@@ -36,6 +37,7 @@ public class Fall : BaseState
     {
 
         stompEnemies();
+        stompTeammates(); //epic
        if (stateMachine.changeStateIfAvailable("WallJump")) { return;  }
         Vector2 new_velocity = player.rb.velocity;
         float horiz = playerInput.actions["Move"].ReadValue<Vector2>().x;
@@ -101,14 +103,50 @@ public class Fall : BaseState
 
     private void stompEnemies()
     {
-        RaycastHit2D hit = Physics2D.Raycast(player.rb.position, new Vector2(0, -1), stompRayLength, enemyMask);
+        RaycastHit2D hit = Physics2D.Raycast(player.rb.position, new Vector2(0, -1), stompRayLength, stompMask);
         if (hit)
         {
-            Destroy(hit.collider.gameObject);
+            BaseEnemy enemy = hit.transform.GetComponent<BaseEnemy>();
+            if (enemy)
+            {
+               
+                enemy.Damage(1);
+            }
+            else
+            {
+                BaseItem item = hit.transform.GetComponent<BaseItem>();
+                if (item)
+                {
+                    item.Damage(1);
+                }
+            }
             Dictionary<string, object> jumpArgs = new Dictionary<string, object>();
             jumpArgs["Bounce"] = true;
             stateMachine.changeState("Jump", jumpArgs);
+            player.levelManager.scoreChanged.Invoke(stompScore);
         }
+    }
+
+    private void stompTeammates()
+    {
+        player.hurtbox.enabled = false;
+        RaycastHit2D hit = Physics2D.Raycast(player.rb.position, new Vector2(0, -1), stompRayLength, LayerMask.GetMask("Player"));
+        if (hit)
+        {
+   
+            
+            Dictionary<string, object> jumpArgs = new Dictionary<string, object>();
+            jumpArgs["Bounce"] = true;
+            stateMachine.changeState("Jump", jumpArgs);
+            PlayerController stompedPlayer = hit.collider.transform.GetComponent<PlayerController>();
+               Vector2 newSpeed = stompedPlayer.rb.velocity;
+            if (newSpeed.y > 0)
+            {
+                newSpeed.y = 0;
+            }
+            
+        }
+        player.hurtbox.enabled = true;
     }
 
 

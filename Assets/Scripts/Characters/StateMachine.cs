@@ -71,8 +71,8 @@ public class StateMachine : MonoBehaviour
         if (desiredState != null)
         {
             currentState.onExit();
-            desiredState.onEnter(msg);
             currentState = desiredState;
+            desiredState.onEnter(msg);
             return true;
         }
         return false;

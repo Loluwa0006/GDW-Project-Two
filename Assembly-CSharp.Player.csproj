@@ -71,6 +71,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Scripts\Items\BaseItem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\Scripts\Characters\Goomba\GoombaController.cs" />
     <Compile Include="Assets\Scripts\Characters\Piranha\PiranhaController.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Characters\Player\States\Jump.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Characters\Koopa\KoopaShell.cs" />
     <Compile Include="Assets\OutOfBounds.cs" />
     <Compile Include="Assets\Scripts\Characters\BaseState.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
@@ -101,9 +103,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\Scripts\Characters\Koopa\KoopaController.cs" />
     <Compile Include="Assets\Scripts\Characters\Player\States\Run.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Scripts\SplitScreenManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Scripts\FlagPole.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
@@ -115,14 +119,15 @@
     <Compile Include="Assets\Scripts\Characters\Player\States\Idle.cs" />
     <Compile Include="Assets\Scripts\PowerupMovement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\Scripts\Characters\Player\States\Dash.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
+    <Compile Include="Assets\Scripts\Characters\Player\States\Dash.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\higherJump.cs" />
     <Compile Include="Assets\Scripts\Characters\Player\States\Slide.cs" />
+    <Compile Include="Assets\Scripts\Characters\BaseEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -987,17 +992,21 @@
       <Project>{21AE76A9-DC62-E253-D14F-BA742F76145E}</Project>
       <Name>Unity.Mathematics.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Cinemachine.Player.csproj">
-      <Project>{A7F33138-4060-AEF3-5290-D49DDDD7E4A5}</Project>
-      <Name>Cinemachine.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
       <Project>{ABECB161-A305-C072-FD90-292CF16E59EE}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Splines.Player.csproj">
+      <Project>{0060839E-EDF6-444D-1FF5-7DC9326E0DBC}</Project>
+      <Name>Unity.Splines.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.Player.csproj">
       <Project>{16026D18-335C-2D8D-E317-9B64BC9192E8}</Project>
       <Name>Unity.VisualScripting.State.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Cinemachine.Player.csproj">
+      <Project>{2B027E2F-4663-658A-CF27-4980C70A2A61}</Project>
+      <Name>Unity.Cinemachine.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Collections.Player.csproj">
       <Project>{72FFCE0F-BDDD-08BB-B6D2-D8DDEA8523CD}</Project>

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -46,12 +47,17 @@ public class PoleSlide : BaseState
                 break;
             case PoleSlideState.SLIDING:
                 player.rb.velocity = new Vector2(0, -SlideSpeed * Time.deltaTime);
+                player.levelManager.scoreChanged.Invoke(ScoreIncrease);
                 if (IsGrounded())
                 {
                     CurrentState = PoleSlideState.DONE;
                 }
+
                 break;
             case PoleSlideState.DONE:
+                float bonus = player.levelManager.goodTimeInSeconds - Time.realtimeSinceStartup;
+
+                player.levelManager.scoreChanged.Invoke(bonus);
                 Debug.Log("You won!");
                 player.rb.velocity = Vector2.zero;
                 Time.timeScale = 0.0f;

@@ -202,13 +202,13 @@
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\InputManagerStateMonitors.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Plugins\UI\InputSystemUIInputModuleEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Plugins\iOS\InputSettingsiOSProvider.cs" />
-    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Actions\InputAction.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Plugins\DualShock\IDualShockHaptics.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Actions\InputActionState.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Devices\Precompiled\FastTouchscreen.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Editor\AssetImporter\InputActionAssetEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Actions\Composites\TwoModifiersComposite.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Plugins\PlayerInput\PlayerNotifications.cs" />
+    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Actions\InputAction.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Controls\StickControl.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Editor\UITKAssetEditor\Views\InputActionsTreeViewItem.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Devices\Touchscreen.cs" />
@@ -233,8 +233,8 @@
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Editor\ControlPicker\InputControlPicker.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Plugins\OnScreen\OnScreenSupport.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Editor\Debugger\InputDeviceDebuggerWindow.cs" />
-    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Utilities\Substring.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Actions\InputBindingResolver.cs" />
+    <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Utilities\Substring.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Plugins\UI\TrackedDeviceRaycaster.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Controls\Processors\NormalizeProcessor.cs" />
     <Compile Include="Library\PackageCache\com.unity.inputsystem@1.7.0\InputSystem\Utilities\CSharpCodeHelpers.cs" />

@@ -9,6 +9,9 @@ public class Dash : BaseState
     [SerializeField] float dash_duration = 0.4f;
     [SerializeField] float dash_speed = 50f;
     [SerializeField] float MaxExitSpeed = 15.0f;
+
+    [SerializeField] float cooldownLength = 0.45f;
+    float cooldownTracker = 0;
     float dash_dir;
 
 
@@ -106,14 +109,20 @@ public class Dash : BaseState
     {
         base.onExit();
         timer = 0.0f;
+        cooldownTracker = cooldownLength;
     }
 
+
+    public override void inactiveUpdate()
+    {
+        cooldownTracker -= Time.deltaTime;
+    }
     public override bool conditionsMet()
     {
       //  Debug.Log(playerInput.actions.ToString());
       ///  Debug.Log(playerInput.actions["Dash"].ToString());
        // Debug.Log(playerInput.actions["Dash"].IsPressed().ToString());
-        return playerInput.actions["Dash"].IsPressed() && playerInput.actions["Move"].ReadValue<Vector2>().x != 0;
+        return playerInput.actions["Dash"].IsPressed() && playerInput.actions["Move"].ReadValue<Vector2>().x != 0 && cooldownTracker <= 0.0f;
     }
 }
 

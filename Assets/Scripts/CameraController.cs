@@ -1,22 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
-using Cinemachine;
+//using Cinemachine;
 
 public class CameraController : MonoBehaviour
 {
-    public CinemachineVirtualCamera CineCam;
-    public CinemachineFramingTransposer composer;
+   // public CinemachineVirtualCamera CineCam;
+   // public CinemachineFramingTransposer composer;
     public StateMachine playerMachine;
 
-    const float AIRBORNE_VERTICAL_DEADZONE = 1.5f;
+    const float AIRBORNE_VERTICAL_DEADZONE = 3.5f;
 
-    [SerializeField] float turnSpeed = 3.0f;
+    [SerializeField] CinemachineCamera cineCamera;
 
+     ScreenComposerSettings composer;
     private void Awake()
     {
-       
             //CineCam = GetComponent<CinemachineVirtualCamera>();
 
        /* if (CineCam == null)
@@ -43,7 +44,9 @@ public class CameraController : MonoBehaviour
         } 
        */
         
-        composer = CineCam.GetCinemachineComponent<CinemachineFramingTransposer>();
+        //composer = CineCam.GetCinemachineComponent<CinemachineFramingTransposer>();
+       // lookaheadFactor = composer.m_TrackedObjectOffset.x;
+
     }
     private void LateUpdate()
     {
@@ -51,22 +54,28 @@ public class CameraController : MonoBehaviour
         BaseState currentState = playerMachine.getCurrentState();
         if (!currentState.IsGrounded())
         {
-            composer.m_DeadZoneHeight = AIRBORNE_VERTICAL_DEADZONE;
+            composer.DeadZone.Size.y = 0.0f;
+         //   Debug.Log("enabling camera scroll");
         }
         else
         {
-            composer.m_DeadZoneHeight = 0;
+            composer.DeadZone.Size.y = 3.5f;
+          //  Debug.Log("nerfing camera scroll");
+
         }
+        /*
         if (currentState.facingRight())
         {
             Debug.Log("Moving camera right");
-            Mathf.Lerp(composer.m_TrackedObjectOffset.x, Mathf.Abs(composer.m_TrackedObjectOffset.x), turnSpeed); 
+           composer.m_TrackedObjectOffset.x = Mathf.Lerp(composer.m_TrackedObjectOffset.x, lookaheadFactor, turnSpeed); 
            // composer.m_TrackedObjectOffset.x = Mathf.Abs(composer.m_TrackedObjectOffset.x);
         }
         else if (!currentState.facingRight())
         {
             Debug.Log("Moving camera left");
-            Mathf.Lerp(composer.m_TrackedObjectOffset.x, Mathf.Abs(composer.m_TrackedObjectOffset.x) * -1, turnSpeed);
-        }
+            composer.m_TrackedObjectOffset.x = Mathf.Lerp(composer.m_TrackedObjectOffset.x, -lookaheadFactor, turnSpeed);
+            // composer.m_TrackedObjectOffset.x = Mathf.Abs(composer.m_TrackedObjectOffset.x); * -1;
+
+        } */
     }
 }

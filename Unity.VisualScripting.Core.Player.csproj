@@ -87,9 +87,9 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Reflection\IPrewarmable.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Variables\Variables.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Dependencies\FullSerializer\Internal\fsPortableReflection.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Reflection\Operators\BinaryOperatorHandler.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Listeners\UIInterfaces\UnityOnSelectMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Reflection\Optimization\InstancePropertyAccessor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Reflection\Operators\BinaryOperatorHandler.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Reflection\Optimization\StaticActionInvoker_1.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Dependencies\FullSerializer\Converters\fsKeyValuePairConverter.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Listeners\MonoBehaviour\UnityOnCollisionExitMessageListener.cs" />
@@ -140,10 +140,10 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Graphs\GraphInstances.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Connections\ConnectionCollectionBase.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Profiling\ProfilingScope.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Unity\RequiresUnityAPIAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Graphs\IGraphRoot.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\EditorBinding\Inspector\InspectorActionDirectionAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Dependencies\FullSerializer\fsData.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Unity\RequiresUnityAPIAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Decorators\IDecoratorAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Exceptions\InvalidConversionException.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Collections\INotifiedCollectionItem.cs" />
@@ -171,8 +171,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Listeners\UIInterfaces\UnityOnPointerExitMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Graphs\GraphNest.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Reflection\Optimization\StaticFunctionInvoker_5.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Listeners\MonoBehaviour\UnityOnBecameVisibleMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Connections\ConnectionCollection.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Listeners\MonoBehaviour\UnityOnBecameVisibleMessageListener.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Graphs\IGraphElementCollection.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Utilities\HashUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Runtime\VisualScripting.Core\Utilities\EnumUtility.cs" />

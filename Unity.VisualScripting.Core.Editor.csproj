@@ -241,8 +241,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Plugins\IPluginLinked.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Analysis\IGraphElementAnalysis.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Inspection\Unity\LayerMaskInspector.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Interface\Licenses\License.Iconmonstr.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Interface\Colors\SkinnedColor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Interface\Licenses\License.Iconmonstr.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Utilities\LudiqEditorUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Plugin\BoltCoreResources.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Inspection\Unity\RayInspector.cs" />
@@ -411,8 +411,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Inspection\Special\TypeHandleInspector.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Description\MacroDescriptor.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Platforms\AotStubWriterAttribute.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\ReorderableList\ElementAdderMenu\IElementAdder.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Plugin\Changelogs\LegacyLudiqCore\Changelog_1_2_3.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Dependencies\ReorderableList\ElementAdderMenu\IElementAdder.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Plugin\Changelogs\LegacyLudiqGraphs\Changelog_1_0_2.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Documentation\XmlDocumentationTags.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Widgets\Nodes\NodeColorMix.cs" />
@@ -469,8 +469,8 @@
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Meta\ProjectSettingMetadata.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Inspection\Primitives\DiscreteNumberInspector.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Descriptors\Description.cs" />
-    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Plugins\PluginUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Context\GraphContext.cs" />
+    <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Plugins\PluginUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Interface\Fuzzy\FuzzyOptionAttribute.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\SemanticVersion.cs" />
     <Compile Include="Library\PackageCache\com.unity.visualscripting@1.8.0\Editor\VisualScripting.Core\Interface\Fonts\FontWeight.cs" />

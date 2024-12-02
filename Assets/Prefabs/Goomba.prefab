@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2049016228036624901
+--- !u!1 &2030611425501690736
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1469158158496190879}
-  - component: {fileID: 7676328478377897074}
+  - component: {fileID: 5416371722947241388}
+  - component: {fileID: 7533519185100894866}
   m_Layer: 11
   m_Name: HitboxLeft
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1469158158496190879
+--- !u!4 &5416371722947241388
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049016228036624901}
+  m_GameObject: {fileID: 2030611425501690736}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.4609, y: -0.00016, z: 0}
@@ -32,13 +32,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8181601697670794265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7676328478377897074
+--- !u!61 &7533519185100894866
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2049016228036624901}
+  m_GameObject: {fileID: 2030611425501690736}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.36198372}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.27603257}
   m_EdgeRadius: 0
 --- !u!1 &4999681798550548832
 GameObject:
@@ -112,7 +112,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6487810996678077463}
-  - {fileID: 1469158158496190879}
+  - {fileID: 5416371722947241388}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3842356384772239741
@@ -183,8 +183,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -195,7 +195,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &7245266513355167796
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.83230114, y: 1}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &8666157623069885388
 MonoBehaviour:
@@ -254,6 +254,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4bec5ee6151484cb4c891aa05d7579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RaycastHitColor: {r: 0.8930817, g: 0.10391186, b: 0.10391186, a: 0}
+  RaycastMissColor: {r: 0, g: 0, b: 0, a: 0}
   JumpHeight: 5
   JumpTimeToPeak: 0.5
   jumpTimeToDecent: 0.4
@@ -262,16 +264,11 @@ MonoBehaviour:
   AccelerationSpeed: 0.75
   VisionLength: 15
   ChaseAcceleration: 1
-  ChaseSpeed: 15
+  ChaseSpeed: 8
   chaseDuration: 8
   playerMask:
     serializedVersion: 2
     m_Bits: 64
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
-  RaycastHitColor: {r: 0.8930817, g: 0.10391186, b: 0.10391186, a: 0}
-  RaycastMissColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &6223725578340664886
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +335,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.36198372}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -348,5 +345,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.27603257}
   m_EdgeRadius: 0

@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04389fe9a89508442a588e613b94c0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piranha: {fileID: 0}
+  piranha: {fileID: 8858230008054162102}
 --- !u!1 &7880799843486836187
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,6 +352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf38b5b1a8f01f44196fced3cb7b77bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RaycastHitColor: {r: 1, g: 0, b: 0, a: 1}
+  RaycastMissColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   AttackRange: 10
   AttackSpeed: 25
   RetractSpeed: 25

@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PiranhaController : MonoBehaviour
+public class PiranhaController : BaseEnemy
 {
 
     [SerializeField] float AttackRange = 25.0f;
     [SerializeField] float AttackSpeed = 4.0f;
     [SerializeField] float RetractSpeed = 1.5f;
     Vector2 startPos;
-    Rigidbody2D rb;
     Collider2D hitbox;
     Vector2 AttackVector;
     SpriteRenderer sprite;

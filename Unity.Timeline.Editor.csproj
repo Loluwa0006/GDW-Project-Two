@@ -242,8 +242,8 @@
     <Compile Include="Library\PackageCache\com.unity.timeline@1.8.6\Editor\Window\TimelineWindow_Breadcrumbs.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.8.6\Editor\Extensions\AnimatedParameterExtensions.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.8.6\Editor\Utilities\FileUtility.cs" />
-    <Compile Include="Library\PackageCache\com.unity.timeline@1.8.6\Editor\Manipulators\Trim\ITrimItemMode.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.8.6\Editor\Window\TimelineWindow_ActiveTimeline.cs" />
+    <Compile Include="Library\PackageCache\com.unity.timeline@1.8.6\Editor\Manipulators\Trim\ITrimItemMode.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.8.6\Editor\Signals\SignalUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.8.6\Editor\CustomEditors\TrackEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.timeline@1.8.6\Editor\Animation\TimelineAnimationUtilities.cs" />
