@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] TMP_Text stateTracker;
     [SerializeField] TMP_Text velocityTracker;
-    [SerializeField] TMP_Text livesTracker;
 
     [SerializeField] Transform SpawnPoint;
 
@@ -196,9 +195,8 @@ public class PlayerController : MonoBehaviour
         return currentPower;
     }
     
-public void initPlayer(TMP_Text l_tracker, Transform spawnpoint, LevelManager manager)
+public void initPlayer( Transform spawnpoint, LevelManager manager)
     {
-        livesTracker = l_tracker;
         SpawnPoint = spawnpoint;
         levelManager = manager;
        

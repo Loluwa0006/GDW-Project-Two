@@ -6,6 +6,7 @@ using System;
 //using Cinemachine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using Unity.Cinemachine;
 
 
 public class LevelManager : MonoBehaviour
@@ -16,9 +17,11 @@ public class LevelManager : MonoBehaviour
     [SerializeField] TMP_Text scoreTracker;
     [SerializeField] PlayerController PlayerPrefab;
    // [SerializeField] CinemachineVirtualCamera cinemachineCamera;
-    [SerializeField] CameraController cameraController;
     [SerializeField] Camera levelCamera;
     [SerializeField] float PlayerSpawnerSpacerAmount = 1.5f;
+
+    public CinemachineCamera cinemachineCamera;
+    public CinemachinePositionComposer positionComposer;
 
     public Transform StartPos;
 

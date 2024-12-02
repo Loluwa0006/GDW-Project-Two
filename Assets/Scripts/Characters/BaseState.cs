@@ -18,22 +18,36 @@ public class BaseState : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
 
-  
+    // Start is called before the first frame update
+    [SerializeField] AudioSource enterAudio;
+    [SerializeField] AudioSource exitAudio;
+    [SerializeField] AudioSource updateAudio;
+    [SerializeField] AudioSource fixedUpdateAudio;
+
 
     virtual public void onEnter()
     {
-
+        if (enterAudio != null)
+        {
+            enterAudio.Play();
+        }
     }
     virtual public void onEnter(Dictionary<string, object> msg) 
     {
-
+        if (enterAudio != null)
+        {
+            enterAudio.Play();
+        }
     }
 
     // Update is called once per frame
     virtual public void UpdateState()
     {
+        if (updateAudio != null)
+        {
+            updateAudio.Play();
+        }
         moveInput = playerInput.actions["Move"].ReadValue<Vector2>();
         if (moveInput.x > 0)
         {
@@ -63,7 +77,10 @@ public class BaseState : MonoBehaviour
 
     virtual public void onExit()
     {
-
+        if (exitAudio != null)
+        {
+            exitAudio.Play();
+        }
     }
 
     public void setMachine(StateMachine machine, PlayerController player)

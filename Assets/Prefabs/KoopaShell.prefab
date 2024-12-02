@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shellSpeed: 25
-  wallRaycastLength: 1.25
+  wallRaycastLength: 1.5
   fallForce: 10
   bounceMask:
     serializedVersion: 2

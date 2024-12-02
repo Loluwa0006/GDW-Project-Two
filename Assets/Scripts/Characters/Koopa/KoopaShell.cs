@@ -99,6 +99,7 @@ public class KoopaShell : BaseItem
         currentState = ShellState.HELD;
         player.releasedInteract.AddListener(onPlayerReleased);
         Debug.Log("Shell picked up by player " + player.name);
+        rb.velocity = Vector2.zero;
     }
 
     public bool IsGrounded()
@@ -123,6 +124,9 @@ public class KoopaShell : BaseItem
         currentState = ShellState.MOVING;
         transform.parent = originalParent;
         rb.velocity = new Vector2(shellSpeed * player.getStateMachine().getCurrentState().getFacing(), rb.velocity.y);
+        /*
+        gameObject.layer = 0;
+        gameObject.layer = LayerMask.GetMask("Item"); */
     }
 
     public override void Damage(int amount, PlayerController player)

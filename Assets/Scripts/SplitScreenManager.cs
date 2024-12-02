@@ -33,18 +33,18 @@ public class SplitScreenManager : MonoBehaviour
 
         Debug.Log("PLEASE UNITY I BEG OF YOU SPARE MY FIRST BORNE");
         Transform playerParent = player.transform.parent.transform.parent;
-        Transform playerController = player.transform.parent;
+        PlayerController playerController = player.transform.parent.GetComponent<PlayerController>();
         //StateMachine has playerinput, so you need to get the parent player, then get player's parent, splitscreenplayer object, and then you can get the cinemachine
         Debug.Log("parent name is " + playerParent.name);
-        
-        playerController.position = levelManager.StartPos.position;
 
-        numberOfPlayers++;
+        playerController.transform.position = levelManager.StartPos.position;
+        playerParent.transform.GetComponentInChildren<CinemachinePositionComposer>().TargetOffset = levelManager.positionComposer.TargetOffset;
+        playerController.initPlayer(levelManager.StartPos, levelManager);
+        //levelManager.positionComposer.TargetOffset = Vector2.zero;        
 
 
 
         // playerParent.GetComponentInChildren<CinemachineVirtualCamera>().gameObject.layer = newLayer;
-        CinemachineCamera cam = playerParent.GetComponentInChildren<CinemachineCamera>();
         /*
         if (cam!= null)
         {

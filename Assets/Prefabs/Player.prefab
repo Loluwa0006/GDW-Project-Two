@@ -146,7 +146,7 @@ MonoBehaviour:
   PoleLayer:
     serializedVersion: 2
     m_Bits: 16384
-  SlideSpeed: 250
+  SlideSpeed: 2500
   ScoreIncrease: 0.1
   SlideDelay: 1.5
 --- !u!1 &1328330861743518148
@@ -589,7 +589,6 @@ MonoBehaviour:
   stateMachine: {fileID: 4794825729852359987}
   stateTracker: {fileID: 0}
   velocityTracker: {fileID: 0}
-  livesTracker: {fileID: 0}
   SpawnPoint: {fileID: 0}
   bubbleMask:
     serializedVersion: 2
